@@ -1,0 +1,28 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MapApp01"
+        xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013" x:Class="MapApp01.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <Grid Height="50" DockPanel.Dock="Top" Background="#FF0080FF" VerticalAlignment="Center"  >
+            <Label Content="Maartens Map App" Foreground="White" FontSize="20" FontFamily="Lucida Sans" Margin="0,10,0,0" FontWeight="Bold"  />
+
+        </Grid>
+        <StackPanel Width="100" DockPanel.Dock="Left">
+            <Button Content="AddPoint" x:Name="btnNewPoint" Click="btnNewPoint_Click"/>
+            <Button Content="RandomPoint" x:Name="btnNewRandomPoint" Click="btnNewRandomPoint_Click"/>
+            <Button Content="BackGround" x:Name="btnBackGround" Click="btnBackGround_Click"/>
+            <Button Content="Monumentje" x:Name="btnMonuments" Click="btnMonuments_Click"/>
+        </StackPanel>
+
+
+        <esri:MapView Map="{Binding Path=CurrentMap}" x:Name="MainMapView" >
+            
+        </esri:MapView>
+
+    </DockPanel>
+</Window>
