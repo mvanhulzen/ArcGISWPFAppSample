@@ -11,6 +11,6 @@
         <local:MapViewModel x:Key="MapViewModel" />
     </Window.Resources>
     <Grid>
-        <esri:MapView Map="{Binding Map, Source={StaticResource MapViewModel}}" />
+        <esri:MapView x:Name="MyMapView" Map="{Binding Map, Source={StaticResource MapViewModel}}" GeoViewTapped="MapView_GeoViewTapped" MouseMove="MyMapView_MouseMove" />
     </Grid>
 </Window>

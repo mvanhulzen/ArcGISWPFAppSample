@@ -23,6 +23,29 @@ namespace MapApp01Selection
         public MainWindow()
         {
             InitializeComponent();
+            MapViewModel = ((MapViewModel)this.Resources["MapViewModel"]);
+        }
+
+        public MapViewModel MapViewModel { get; set; }
+        private void MapView_GeoViewTapped(object sender, Esri.ArcGISRuntime.UI.Controls.GeoViewInputEventArgs e)
+        {
+
+            MapViewModel.HandleNewLocation(MyMapView, e.Position);
+
+
+        }
+
+        private void MyMapView_MouseMove(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                MapViewModel.HandleNewLocation(MyMapView, e.GetPosition(MyMapView));
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

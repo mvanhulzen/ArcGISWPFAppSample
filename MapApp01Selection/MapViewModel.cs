@@ -6,6 +6,7 @@ using Esri.ArcGISRuntime.Security;
 using Esri.ArcGISRuntime.Symbology;
 using Esri.ArcGISRuntime.Tasks;
 using Esri.ArcGISRuntime.UI;
+using Esri.ArcGISRuntime.UI.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,8 @@ namespace MapApp01Selection
 
             Map.OperationalLayers.Add(BuurtenLayer);
 
+
+            
             
         }
 
@@ -59,6 +62,27 @@ namespace MapApp01Selection
         /// <param name="propertyName">The name of the property that has changed</param>
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        internal async void HandleNewLocation(MapView view, System.Windows.Point? screenlocation)
+        {
+            
+            if (screenlocation != null)
+            {
+                IdentifyLayerResult ilr = await view.IdentifyLayerAsync(BuurtenLayer, screenlocation.Value, 1, false);
+                if (ilr.GeoElements.Count>0)
+                {
+                    BuurtenLayer.ClearSelection();
+                }
+                ilr.GeoElements.ToList().ForEach(ge =>
+                {
+                    if (ge is Feature f)
+                    {
+                        BuurtenLayer.SelectFeature(f);
+                    }
+                }); 
+            }
+            
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
     }

@@ -39,7 +39,7 @@ namespace MapApp01Selection
                 // Initialize the ArcGIS Maps SDK runtime before any components are created.
                 ArcGISRuntimeEnvironment.Initialize(config => config
                 // .UseLicense("[Your ArcGIS Maps SDK License key]")
-                 .UseApiKey("AAPKd00667998b764a73befe96e2cdb806bdT4SO35LFtQy5tdPkxJjbfsM8rsCFclYt0ZR5SaKlk2GaeIakEcG_PL193v6dbvF4")
+                 .UseApiKey("<<MyAPIKey>>")
                   .ConfigureAuthentication(auth => auth
                      .UseDefaultChallengeHandler() // Use the default authentication dialog
                   // .UseOAuthAuthorizeHandler(myOauthAuthorizationHandler) // Configure a custom OAuth dialog
