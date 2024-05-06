@@ -1,8 +1,11 @@
-﻿using Esri.ArcGISRuntime.Data;
+﻿using Esri.ArcGISRuntime;
+using Esri.ArcGISRuntime.Data;
 using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.Mapping;
+using Esri.ArcGISRuntime.Reduction;
 using Esri.ArcGISRuntime.Symbology;
 using Esri.ArcGISRuntime.UI;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -81,15 +84,7 @@ namespace MapApp01
             
         }
 
-        private void btnMonuments_Click(object sender, RoutedEventArgs e)
-        {
-
-            FeatureLayer fl = new FeatureLayer(new ServiceFeatureTable(new Uri("https://services.arcgis.com/nSZVuSZjHpEZZbRo/arcgis/rest/services/Monumenten/FeatureServer/0")));
-
-            CurrentMap.OperationalLayers.Add(fl);
-                    //FeatureLayer.CreateFeatureTable(new Uri("https://services.arcgis.com/nSZVuSZjHpEZZbRo/arcgis/rest/services/Monumenten/FeatureServer/0")));
-
-        }
+       
 
         private Graphic AddRandomPoint()
         {
@@ -115,6 +110,40 @@ namespace MapApp01
             foreach (var item in CurrentMap.Basemap.BaseLayers)
             {
                 item.IsVisible = !item.IsVisible;            }
+        }
+
+        private void btnMonuments_Click(object sender, RoutedEventArgs e)
+        {
+
+            FeatureLayer fl = new FeatureLayer(new ServiceFeatureTable(new Uri("https://services.arcgis.com/nSZVuSZjHpEZZbRo/arcgis/rest/services/Monumenten/FeatureServer/0")));
+            
+            fl.Id = "Monumenten";
+            fl.MinScale = 0;
+            fl.LoadStatusChanged += (s, e) =>
+            {
+                if (fl.LoadStatus == LoadStatus.Loaded)
+                {
+                    MainMapView.SetViewpoint(new Viewpoint(fl.FullExtent));
+                }
+            };
+            CurrentMap.OperationalLayers.Add(fl);
+
+
+        }
+
+        private void btnAddCluster_Click(object sender, RoutedEventArgs e)
+        {
+            SimpleRenderer simpleRenderer = new SimpleRenderer(new SimpleMarkerSymbol(SimpleMarkerSymbolStyle.Circle, System.Drawing.Color.Red, 10));
+            ClusteringFeatureReduction cfr = new (simpleRenderer);
+            cfr.IsEnabled = true;
+            cfr.MinSymbolSize = 5;
+            cfr.MaxSymbolSize = 90;
+
+            FeatureLayer fl = CurrentMap.OperationalLayers.FirstOrDefault(x => x.Id == "Monumenten") as FeatureLayer;
+
+            fl.FeatureReduction = cfr;
+
+
         }
     }
 }

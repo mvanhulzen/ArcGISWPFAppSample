@@ -12,11 +12,12 @@
             <Label Content="Maartens Map App" Foreground="White" FontSize="20" FontFamily="Lucida Sans" Margin="0,10,0,0" FontWeight="Bold"  />
 
         </Grid>
-        <StackPanel Width="100" DockPanel.Dock="Left">
+        <StackPanel Width="112" DockPanel.Dock="Left">
             <Button Content="AddPoint" x:Name="btnNewPoint" Click="btnNewPoint_Click"/>
             <Button Content="RandomPoint" x:Name="btnNewRandomPoint" Click="btnNewRandomPoint_Click"/>
             <Button Content="BackGround" x:Name="btnBackGround" Click="btnBackGround_Click"/>
             <Button Content="Monumentje" x:Name="btnMonuments" Click="btnMonuments_Click"/>
+            <Button Content="ClusterMonuments" x:Name="btnAddCluster" Click="btnAddCluster_Click"/>
         </StackPanel>
 
 

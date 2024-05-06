@@ -12,7 +12,7 @@ namespace MapApp01
         public App()
         {
             InitializeComponent();
-            Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.ApiKey = "<<Your API Key>>";
+            Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.ApiKey = "AAPKced3cf99acda4b1daa333f6670e3c642mE7HmC_gXfA8G3PXOv1S1eZYNT1rLgIIcIgs1w_wlVbQaLZCZ-CDSBu6xmVhUiPb";
         }
     }
 }

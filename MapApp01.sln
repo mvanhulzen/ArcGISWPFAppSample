@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapApp01", "MapApp01\MapApp01.csproj", "{AF376778-99CF-4969-B9FE-719AFAAD68AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapApp01", "MapApp01\MapApp01.csproj", "{AF376778-99CF-4969-B9FE-719AFAAD68AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapApp01Selection", "MapApp01Selection\MapApp01Selection.csproj", "{911E7CC3-3776-4C5B-A653-D40C3CDE5822}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{AF376778-99CF-4969-B9FE-719AFAAD68AE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AF376778-99CF-4969-B9FE-719AFAAD68AE}.Release|x64.ActiveCfg = Release|x64
 		{AF376778-99CF-4969-B9FE-719AFAAD68AE}.Release|x64.Build.0 = Release|x64
+		{911E7CC3-3776-4C5B-A653-D40C3CDE5822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{911E7CC3-3776-4C5B-A653-D40C3CDE5822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{911E7CC3-3776-4C5B-A653-D40C3CDE5822}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{911E7CC3-3776-4C5B-A653-D40C3CDE5822}.Debug|x64.Build.0 = Debug|Any CPU
+		{911E7CC3-3776-4C5B-A653-D40C3CDE5822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{911E7CC3-3776-4C5B-A653-D40C3CDE5822}.Release|Any CPU.Build.0 = Release|Any CPU
+		{911E7CC3-3776-4C5B-A653-D40C3CDE5822}.Release|x64.ActiveCfg = Release|Any CPU
+		{911E7CC3-3776-4C5B-A653-D40C3CDE5822}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
